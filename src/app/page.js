@@ -37,7 +37,7 @@ export default function Home() {
           <Image
             src={Hero}
             alt='hero'
-            className='w-[80%] h-[500px] object-cover'
+            className='w-[80%] h-[500px] object-contain animate-move2'
           />
         </div>
       </div>

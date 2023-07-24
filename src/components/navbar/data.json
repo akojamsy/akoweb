@@ -5,6 +5,11 @@
     "id": 1
   },
   {
+    "title": "About",
+    "link": "/about",
+    "id": 4
+  },
+  {
     "title": "Portfolio",
     "link": "/portfolio",
     "id": 2
@@ -13,11 +18,6 @@
     "title": "Blog",
     "link": "/blog",
     "id": 3
-  },
-  {
-    "title": "About",
-    "link": "/about",
-    "id": 4
   },
   {
     "title": "Contact",
