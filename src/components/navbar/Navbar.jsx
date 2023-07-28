@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import links from "@/components/navbar/data.json";
+import DarkModeToggle from "../DarkModeToggle";
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
         Akoweb
       </Link>
       <div className='flex flex-row gap-7 items-center'>
+        <DarkModeToggle />
         {links?.map(({ id, link, title }, i) => (
           <Link
             key={id}
@@ -24,7 +26,7 @@ const Navbar = () => {
         </button> */}
         <button
           type='button'
-          class='w-1/3 text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center'
+          className='w-1/3 text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center'
         >
           Logout
         </button>

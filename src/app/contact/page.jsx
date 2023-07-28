@@ -2,6 +2,11 @@ import Button from "@/components/button/Button";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Contact || Akoweb",
+  description: "Contact akoweb via this page",
+};
+
 const Contact = () => {
   return (
     <div>
