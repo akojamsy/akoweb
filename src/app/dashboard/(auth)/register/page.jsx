@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { ClipLoader } from "react-spinners";
-import { Input, Ripple, initTE } from "tw-elements";
 
 const Register = () => {
   const router = useRouter();
@@ -39,10 +38,6 @@ const Register = () => {
       setIsSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    initTE({ Input, Ripple });
-  }, []);
 
   return (
     <div className='block md:mx-auto max-w-md rounded-lg !bg-white  p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:!bg-transparent'>

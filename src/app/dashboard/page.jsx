@@ -1,9 +1,8 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
-import { Input, Ripple, initTE } from "tw-elements";
 import Image from "next/image";
 import { ClipLoader } from "react-spinners";
 import toast from "react-hot-toast";
@@ -122,10 +121,6 @@ const Dashboard = () => {
   const setCustomerImg = (id, value) => {
     setInput((prev) => ({ ...prev, [id]: value }));
   };
-
-  useEffect(() => {
-    initTE({ Input, Ripple });
-  }, []);
 
   if (session?.status === "authenticated") {
     return (

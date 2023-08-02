@@ -1,9 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { ClipLoader } from "react-spinners";
-import { Input, Ripple, initTE } from "tw-elements";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 
@@ -33,10 +32,6 @@ const Login = () => {
       setIsSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    initTE({ Input, Ripple });
-  }, []);
 
   return (
     <div className='mx-auto'>
