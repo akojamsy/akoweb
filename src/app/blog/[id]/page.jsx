@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 async function getData(id) {
-  const res = await fetch(`api/posts/${id}`, {
+  const res = await fetch(`https://akoweb2023.vercel.app/api/posts/${id}`, {
     cache: "no-store",
   });
 
