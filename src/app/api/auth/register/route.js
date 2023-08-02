@@ -46,7 +46,7 @@ export const POST = async (request) => {
           {
             success: true,
             data: { name, email },
-            message: "User created successfully",
+            message: "Registered created successfully",
           },
           { status: 201 }
         );

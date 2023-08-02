@@ -3,8 +3,12 @@ import Link from "next/link";
 import React from "react";
 import links from "@/components/navbar/data.json";
 import DarkModeToggle from "../DarkModeToggle";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
+  const session = useSession();
   return (
     <div className='flex flow-row justify-between items-center h-[80px]'>
       <Link href={"/"} className='font-bold text-xl text-[#cc429e]'>
@@ -24,12 +28,23 @@ const Navbar = () => {
         {/* <button className='bg-[#970a68] hover:bg-[#b40f7d] hover:text-white px-2 py-1 rounded-md cursor-pointer transition duration-300'>
           Logout
         </button> */}
-        <button
-          type='button'
-          className='w-1/3 text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center'
-        >
-          Logout
-        </button>
+        {session.status === "authenticated" ? (
+          <button
+            type='button'
+            className='w-1/3 text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center'
+            onClick={() => signOut()}
+          >
+            Logout
+          </button>
+        ) : (
+          <button
+            type='button'
+            className='w-1/3 text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center'
+            onClick={() => router?.push("/dashboard/login")}
+          >
+            Login
+          </button>
+        )}
       </div>
     </div>
   );
