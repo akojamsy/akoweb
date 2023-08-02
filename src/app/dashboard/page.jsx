@@ -139,8 +139,11 @@ const Dashboard = () => {
           ) : (
             data?.posts &&
             data?.posts?.map((post, i) => (
-              <div className='mb-10 h-fit md:w-3/4 hover:border-2 hover:border-dashed transition duration-300'>
-                <Link href={`blog/${post?._id}`} key={post?._id}>
+              <div
+                className='mb-10 h-fit md:w-3/4 hover:border-2 hover:border-dashed transition duration-300'
+                key={post?._id}
+              >
+                <Link href={`blog/${post?._id}`}>
                   <div className='p-2'>
                     <div className='relative w-full h-44'>
                       <Image

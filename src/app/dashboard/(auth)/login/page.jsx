@@ -23,7 +23,6 @@ const Login = () => {
 
     try {
       setIsSubmitting(true);
-      console.log(email, password);
       await signIn("credentials", { email, password });
     } catch (error) {
       console.log(error);
@@ -79,7 +78,7 @@ const Login = () => {
             <span>Login</span>
           </button>
           <p className='text-white text-[12px] dark:text-neutral-500'>
-            Don't have an account?
+            Don&apos;t have an account?
             <Link
               href='/dashboard/register'
               className='ml-2 hover:underline hover:underline-offset-2 text-pink-400 font-semibold'

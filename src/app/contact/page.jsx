@@ -3,14 +3,16 @@ import Image from "next/image";
 import React from "react";
 
 export const metadata = {
-  title: "Contact || Akoweb",
+  title: "Contact Akoweb",
   description: "Contact akoweb via this page",
 };
 
 const Contact = () => {
   return (
     <div>
-      <h1 className='text-center text-[50px] mb-10'>Let's keep in Touch</h1>
+      <h1 className='text-center text-[50px] mb-10'>
+        Let&apos;s keep in Touch
+      </h1>
       <div className='flex flex-row items-center gap-24'>
         <div className='relative w-full h-[500px] flex-1'>
           <Image

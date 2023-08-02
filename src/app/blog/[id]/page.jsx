@@ -40,6 +40,7 @@ export default async function BlogPost({ params }) {
                 fill={true}
                 src='/images/avatar.jpg'
                 className='rounded-full object-cover'
+                alt='illustration'
               />
             </div>
             <h3 className='text-md font-semibold'>{data?.post?.username}</h3>
