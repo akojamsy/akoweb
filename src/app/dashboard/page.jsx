@@ -66,6 +66,12 @@ const Dashboard = () => {
       toast.success(response.message);
       mutate();
       e.target.reset();
+      setInput({
+        title: "",
+        description: "",
+        content: "",
+        img: "",
+      });
       setImg("");
     } catch (error) {
       toast.error(error.message);
@@ -128,44 +134,48 @@ const Dashboard = () => {
         <div className='flex-1 overflow-y-scroll h-screen no-scrollbar'>
           {isLoading ? (
             <span>Loading...</span>
+          ) : data?.posts?.length <= 0 ? (
+            <h2 className='bg-'>No Posts from you yet!</h2>
           ) : (
             data?.posts &&
             data?.posts?.map((post, i) => (
-              <Link href={`api/posts/${post?._id}`} key={post?._id}>
-                <div className='mb-10 hover:scale-105'>
-                  <div className='relative md:w-3/4 h-44'>
-                    <Image
-                      src={post.img}
-                      alt='post'
-                      fill={true}
-                      className='object-cover'
-                    />
-                  </div>
-                  <div className=''>
-                    <div className='md:w-3/4'>
-                      <h2 className='font-semibold my-3'>{post?.title}</h2>
-                      <p>{post?.description}</p>
+              <div className='mb-10 h-fit md:w-3/4 hover:border-2 hover:border-dashed transition duration-300'>
+                <Link href={`blog/${post?._id}`} key={post?._id}>
+                  <div className='p-2'>
+                    <div className='relative w-full h-44'>
+                      <Image
+                        src={post.img}
+                        alt='post'
+                        fill={true}
+                        className='object-cover'
+                      />
                     </div>
-                    <div className='flex gap-3'>
-                      <button
-                        className='text-primary'
-                        onClick={() => {
-                          setEdit(true);
-                          singlePost(post._id);
-                        }}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(post?._id)}
-                        className='text-red-500'
-                      >
-                        Delete
-                      </button>
+                    <div className=''>
+                      <div className='w-full'>
+                        <h2 className='font-semibold my-3'>{post?.title}</h2>
+                        <p>{post?.description}</p>
+                      </div>
                     </div>
                   </div>
+                </Link>
+                <div className='flex mt-3 gap-3 p-2'>
+                  <button
+                    className='text-primary'
+                    onClick={() => {
+                      setEdit(true);
+                      singlePost(post._id);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(post?._id)}
+                    className='text-red-500'
+                  >
+                    Delete
+                  </button>
                 </div>
-              </Link>
+              </div>
             ))
           )}
         </div>
