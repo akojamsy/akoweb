@@ -17,10 +17,7 @@ import useSWR from "swr";
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 const Blog = () => {
-  const { data, error, isLoading } = useSWR(
-    "http://localhost:3000/api/posts",
-    fetcher
-  );
+  const { data, error, isLoading } = useSWR("api/posts", fetcher);
 
   return (
     <div>
